@@ -8,7 +8,7 @@ const Header = () => {
     <header className="fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div className="text-2xl font-bold text-gray-900">MB.</div>
+          <div className="text-2xl font-bold text-gray-900">BTK.</div>
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
