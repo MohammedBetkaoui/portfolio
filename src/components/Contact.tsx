@@ -20,21 +20,21 @@ const Contact = () => {
             </p>
             <div className="space-y-4">
               <a
-                href="mailto:contact@example.com"
+                href="mailto:mohammed.betkaoui@univ-bba.dz"
                 className="flex items-center text-gray-600 hover:text-blue-600"
               >
                 <Mail className="w-6 h-6 mr-3" />
                 contact@example.com
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/MohammedBetkaoui"
                 className="flex items-center text-gray-600 hover:text-blue-600"
               >
                 <Github className="w-6 h-6 mr-3" />
                 GitHub Profile
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/mohammed-betkaoui-b005342a5/"
                 className="flex items-center text-gray-600 hover:text-blue-600"
               >
                 <Linkedin className="w-6 h-6 mr-3" />

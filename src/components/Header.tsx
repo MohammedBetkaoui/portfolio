@@ -22,13 +22,13 @@ const Header = () => {
 
           {/* Social Links */}
           <div className="hidden md:flex items-center space-x-4">
-            <a href="https://github.com" className="text-gray-700 hover:text-blue-600">
+            <a href="https://github.com/MohammedBetkaoui" className="text-gray-700 hover:text-blue-600">
               <Github size={20} />
             </a>
-            <a href="https://linkedin.com" className="text-gray-700 hover:text-blue-600">
+            <a href="https://www.linkedin.com/in/mohammed-betkaoui-b005342a5/" className="text-gray-700 hover:text-blue-600">
               <Linkedin size={20} />
             </a>
-            <a href="mailto:contact@example.com" className="text-gray-700 hover:text-blue-600">
+            <a href="mailto:mohammed.betkaoui@univ-bba.dz" className="text-gray-700 hover:text-blue-600">
               <Mail size={20} />
             </a>
           </div>

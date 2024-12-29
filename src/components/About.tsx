@@ -27,7 +27,7 @@ const About = () => {
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-gray-50 p-4 rounded-lg">
                 <h3 className="font-bold text-gray-900 mb-2">Frontend</h3>
-                <p className="text-gray-600">React, TypeScript, Tailwind CSS</p>
+                <p className="text-gray-600">html ,css, React</p>
               </div>
               <div className="bg-gray-50 p-4 rounded-lg">
                 <h3 className="font-bold text-gray-900 mb-2">Backend</h3>
