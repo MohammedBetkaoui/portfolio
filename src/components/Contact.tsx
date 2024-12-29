@@ -24,8 +24,7 @@ const Contact = () => {
                 className="flex items-center text-gray-600 hover:text-blue-600"
               >
                 <Mail className="w-6 h-6 mr-3" />
-                contact@example.com
-              </a>
+                mohammed.betkaoui@univ-bba.dz              </a>
               <a
                 href="https://github.com/MohammedBetkaoui"
                 className="flex items-center text-gray-600 hover:text-blue-600"

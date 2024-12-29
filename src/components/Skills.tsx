@@ -5,32 +5,32 @@ const skillCategories = [
   {
     title: "Frontend Development",
     icon: <Layout className="w-8 h-8 text-blue-600" />,
-    skills: ["React", "TypeScript", "Tailwind CSS", "Redux", "Next.js"]
+    skills: ["React"]
   },
   {
     title: "Backend Development",
     icon: <Server className="w-8 h-8 text-blue-600" />,
-    skills: ["Laravel 11", "PHP 8", "RESTful APIs", "GraphQL"]
+    skills: ["Laravel 11", "PHP 8", "RESTful APIs"]
   },
   {
     title: "Database",
     icon: <Database className="w-8 h-8 text-blue-600" />,
-    skills: ["MySQL", "PostgreSQL", "Redis", "MongoDB"]
+    skills: ["MySQL", "MongoDB"]
   },
   {
     title: "Mobile Development",
     icon: <Smartphone className="w-8 h-8 text-blue-600" />,
-    skills: ["React Native", "Expo", "Mobile-First Design"]
+    skills: ["flutter"]
   },
   {
     title: "Programming Languages",
     icon: <Code2 className="w-8 h-8 text-blue-600" />,
-    skills: ["PHP", "JavaScript", "TypeScript", "Python"]
+    skills: ["PHP", "JavaScript", "Python","dart"]
   },
   {
     title: "Tools & Others",
     icon: <Wrench className="w-8 h-8 text-blue-600" />,
-    skills: ["Git", "Docker", "AWS", "CI/CD"]
+    skills: ["Git", "Docker"]
   }
 ];
 
