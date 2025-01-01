@@ -1,10 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Mail, Github, Linkedin, Send } from 'lucide-react';
+import supabase from '../supabaseClient';
 
-const Contact = () => {
-  const handleSubmit = (e: React.FormEvent) => {
+const Contact: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic will be handled by Laravel backend
+    setIsSubmitting(true);
+    setSuccessMessage('');
+    setErrorMessage('');
+
+    try {
+      const { data, error } = await supabase
+        .from('contact')
+        .insert([{ name: formData.name, email: formData.email, message: formData.message }]);
+
+      if (error) {
+        throw new Error(error.message);
+      }
+
+      setSuccessMessage('Message sent successfully!');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error: any) {
+      setErrorMessage(error.message || 'Failed to send message.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -52,6 +87,8 @@ const Contact = () => {
                   type="text"
                   id="name"
                   name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm focus:border-blue-500 focus:ring-blue-500"
                   required
                 />
@@ -64,6 +101,8 @@ const Contact = () => {
                   type="email"
                   id="email"
                   name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm focus:border-blue-500 focus:ring-blue-500"
                   required
                 />
@@ -76,17 +115,22 @@ const Contact = () => {
                   id="message"
                   name="message"
                   rows={4}
+                  value={formData.message}
+                  onChange={handleChange}
                   className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm focus:border-blue-500 focus:ring-blue-500"
                   required
                 ></textarea>
               </div>
               <button
                 type="submit"
+                disabled={isSubmitting}
                 className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
                 <Send className="ml-2" size={20} />
               </button>
+              {successMessage && <p className="text-green-600 mt-4">{successMessage}</p>}
+              {errorMessage && <p className="text-red-600 mt-4">{errorMessage}</p>}
             </form>
           </div>
         </div>
