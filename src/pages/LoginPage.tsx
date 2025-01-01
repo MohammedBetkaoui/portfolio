@@ -18,7 +18,7 @@ const LoginPage = () => {
     });
 
     if (error) {
-      setErrorMessage('Identifiants invalides. Veuillez réessayer.');
+      setErrorMessage(' error : Identifiants invalides. Veuillez réessayer .');
       console.error(error.message);
     } else {
       localStorage.setItem('isAdmin', 'true');
