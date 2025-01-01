@@ -20,13 +20,13 @@ const Header = () => {
           {/* Social Links and Theme Toggle */}
           <div className="hidden md:flex items-center space-x-4">
             <ThemeToggle />
-            <a href="https://github.com" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+            <a href="https://github.com/MohammedBetkaoui" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
               <Github size={20} />
             </a>
-            <a href="https://linkedin.com" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+            <a href="https://www.linkedin.com/in/mohammed-betkaoui-b005342a5/" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
               <Linkedin size={20} />
             </a>
-            <a href="mailto:contact@example.com" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+            <a href="mailto:mohammed.betkaoui@univ-bba.dz" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
               <Mail size={20} />
             </a>
           </div>
