@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface NavLink {
   href: string;
@@ -6,12 +7,12 @@ interface NavLink {
 }
 
 const links: NavLink[] = [
-  { href: '#home', label: 'Home' },
-  { href: '#about', label: 'About' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#skills', label: 'Skills' },
-  { href: '#experience', label: 'Experience' },
-  { href: '#contact', label: 'Contact' },
+  { href: '#home', label: 'home' },
+  { href: '#about', label: 'about' },
+  { href: '#projects', label: 'projects' },
+  { href: '#skills', label: 'skills' },
+  { href: '#experience', label: 'experience' },
+  { href: '#contact', label: 'contact' },
 ];
 
 interface NavLinksProps {
@@ -19,6 +20,8 @@ interface NavLinksProps {
 }
 
 const NavLinks = ({ mobile = false }: NavLinksProps) => {
+  const { t } = useTranslation(); // Hook pour obtenir les traductions
+
   const baseStyles = mobile
     ? "block px-3 py-2"
     : "";
@@ -29,7 +32,7 @@ const NavLinks = ({ mobile = false }: NavLinksProps) => {
     <>
       {links.map((link) => (
         <a key={link.href} href={link.href} className={linkStyles}>
-          {link.label}
+          {t(`nav.${link.label}`, { defaultValue: link.label })} {/* Traduction dynamique */}
         </a>
       ))}
     </>

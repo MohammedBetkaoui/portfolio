@@ -77,6 +77,14 @@
     "skill_4_2": "JavaScript",
     "skill_4_3": "Python",
     "skill_4_4": "Dart"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "experience": "Experience",
+    "contact": "Contact"
   }
       
       
