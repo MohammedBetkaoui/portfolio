@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Mail, Github, Linkedin, Send } from 'lucide-react';
 import supabase from '../supabaseClient';
+import { useTranslation } from 'react-i18next';
 
 const Contact: React.FC = () => {
+  const { t } = useTranslation();
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -33,10 +36,10 @@ const Contact: React.FC = () => {
         throw new Error(error.message);
       }
 
-      setSuccessMessage('Message sent successfully!');
+      setSuccessMessage(t('contact.success_message'));
       setFormData({ name: '', email: '', message: '' });
     } catch (error: any) {
-      setErrorMessage(error.message || 'Failed to send message.');
+      setErrorMessage(error.message || t('contact.error_message'));
     } finally {
       setIsSubmitting(false);
     }
@@ -45,13 +48,12 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" className="py-20 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Get In Touch</h2>
+        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">{t('contact.title')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Contact Information</h3>
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">{t('contact.contact_information')}</h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6">
-              I'm always interested in hearing about new projects and opportunities.
-              Feel free to reach out through any of these channels:
+              {t('contact.contact_intro')}
             </p>
             <div className="space-y-4">
               <a
@@ -81,7 +83,7 @@ const Contact: React.FC = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                  Name
+                  {t('contact.name')}
                 </label>
                 <input
                   type="text"
@@ -95,7 +97,7 @@ const Contact: React.FC = () => {
               </div>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                  Email
+                  {t('contact.email')}
                 </label>
                 <input
                   type="email"
@@ -109,7 +111,7 @@ const Contact: React.FC = () => {
               </div>
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                  Message
+                  {t('contact.message')}
                 </label>
                 <textarea
                   id="message"
@@ -126,7 +128,7 @@ const Contact: React.FC = () => {
                 disabled={isSubmitting}
                 className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
               >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                {isSubmitting ? t('contact.sending') : t('contact.send_message')}
                 <Send className="ml-2" size={20} />
               </button>
               {successMessage && <p className="text-green-600 mt-4">{successMessage}</p>}

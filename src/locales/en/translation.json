@@ -1,0 +1,84 @@
+{
+    "hero": {
+      "name": "Betkaoui Mohammed",
+      "title": "Web Developer",
+      "description": "Crafting intuitive and high-performance applications with Laravel & React js",
+      "viewWork": "View My Work",
+      "contactMe": "Contact Me"
+    },
+    "about": {
+      "title": "About Me",
+      "intro": "I'm a passionate Web Developer with extensive experience in building modern, scalable applications. Specializing in Laravel and React js, I focus on creating intuitive user experiences backed by robust server-side architecture.",
+      "details": "With a strong foundation in both frontend and backend development, I bring ideas to life through clean code and innovative solutions. I'm constantly learning and adapting to new technologies to deliver the best possible results.",
+      "frontend": "Frontend",
+      "frontendSkills": "React js",
+      "backend": "Backend",
+      "backendSkills": "Laravel 11, PHP 8, RESTful APIs"
+    },
+    
+        "experience": {
+          "title": "Professional Experience",
+          "senior_full_stack_developer": "Senior Full Stack Developer",
+          "senior_full_stack_developer_description": "Led development of enterprise-level web applications using Laravel and React. Implemented CI/CD pipelines and mentored junior developers.",
+          "senior_full_stack_developer_achievement_1": "Reduced application load time by 40%",
+          "senior_full_stack_developer_achievement_2": "Implemented microservices architecture",
+          "senior_full_stack_developer_achievement_3": "Led team of 5 developers",
+          "full_stack_developer": "Full Stack Developer",
+          "full_stack_developer_description": "Developed and maintained multiple client projects using Laravel and React. Focused on creating scalable and maintainable code.",
+          "full_stack_developer_achievement_1": "Delivered 15+ successful projects",
+          "full_stack_developer_achievement_2": "Implemented automated testing",
+          "full_stack_developer_achievement_3": "Improved code coverage by 80%",
+          "web_developer": "Web Developer",
+          "web_developer_description": "Worked on various startup projects, focusing on rapid prototyping and MVP development.",
+          "web_developer_achievement_1": "Built 5 MVPs for different startups",
+          "web_developer_achievement_2": "Reduced development time by 30%",
+          "web_developer_achievement_3": "Implemented agile methodologies",
+          "company": {
+            "tech_solutions_inc": "Tech Solutions Inc.",
+            "digital_innovations": "Digital Innovations",
+            "startup_hub": "StartUp Hub"
+          }
+        },
+        "contact": {
+    "title": "Get In Touch",
+    "contact_information": "Contact Information",
+    "contact_intro": "I'm always interested in hearing about new projects and opportunities. Feel free to reach out through any of these channels:",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send_message": "Send Message",
+    "sending": "Sending...",
+    "success_message": "Message sent successfully!",
+    "error_message": "Failed to send message."
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "demo": "Demo",
+    "code": "Code",
+    "project_1_title": "E-Commerce Platform",
+    "project_1_description": "A full-featured e-commerce platform built with Laravel and React, featuring real-time inventory management and secure payment processing.",
+    "project_2_title": "Task Management System",
+    "project_2_description": "A collaborative task management system with real-time updates and team collaboration features."
+  },
+  "skills": {
+    "title": "Skills & Expertise",
+    "category_1_title": "Frontend Development",
+    "category_2_title": "Backend Development",
+    "category_3_title": "Database",
+    "category_4_title": "Programming Languages",
+    "skill_1_1": "React js",
+    "skill_1_2": "Tailwind CSS",
+    "skill_1_3": "Next.js",
+    "skill_2_1": "Laravel 11",
+    "skill_2_2": "PHP 8",
+    "skill_2_3": "RESTful APIs",
+    "skill_3_1": "MySQL",
+    "skill_4_1": "PHP",
+    "skill_4_2": "JavaScript",
+    "skill_4_3": "Python",
+    "skill_4_4": "Dart"
+  }
+      
+      
+  }
+  
