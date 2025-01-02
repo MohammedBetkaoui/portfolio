@@ -58,7 +58,7 @@ const Header = () => {
             >
               <option value="en">🇬🇧 EN</option>
               <option value="fr">🇫🇷 FR</option>
-              <option value="ar">🇩🇿 AR</option>
+              
             </select>
             <button 
               className="text-gray-700 dark:text-gray-300"
