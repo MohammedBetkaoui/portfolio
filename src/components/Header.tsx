@@ -105,21 +105,20 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-4">
             <ThemeToggle />
+            
+            {/* Sélecteur de langue pour mobile */}
             <select
               onChange={changeLanguage}
               value={i18n.language}
               className="bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white px-2 py-1 rounded-md border border-gray-300 dark:border-gray-600 focus:outline-none"
-             
             >
               <option value="en">🇬🇧 EN</option>
               <option value="fr">🇫🇷 FR</option>
               <option value="ar">🇩🇿 AR</option>
             </select>
-            <button
+            <button 
               className="text-gray-700 dark:text-gray-300"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-             
-              aria-label="Toggle menu"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -129,10 +128,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div
-          className="md:hidden bg-white dark:bg-gray-900"
-        
-        >
+        <div className="md:hidden bg-white dark:bg-gray-900">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <NavLinks mobile />
           </div>
