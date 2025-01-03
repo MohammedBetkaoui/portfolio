@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 
 const About = () => {
   const { t, i18n } = useTranslation();
-  const [hasAnimated, setHasAnimated] = useState(false); // État pour verrouiller l'animation
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem('language') || 'en';
@@ -13,15 +12,12 @@ const About = () => {
     document.documentElement.dir = savedLanguage === 'ar' ? 'rtl' : 'ltr';
   }, [i18n]);
 
-  // Intersection Observer
+  // Intersection Observer avec ajustement pour visibilité
   const { ref: sectionRef, inView } = useInView({
-    threshold: 0.4, // Se déclenche lorsque 40% de la section est visible
-    triggerOnce: true, // L'animation ne se joue qu'une seule fois
+    threshold: 0.1, // Déclenche avec une petite partie visible
+    triggerOnce: false, // Répète l'animation à chaque visibilité
+    rootMargin: '0px 0px 100px 0px', // Ajoute un décalage en bas pour meilleure détection
   });
-
-  useEffect(() => {
-    if (inView) setHasAnimated(true);
-  }, [inView]);
 
   const sectionVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -34,21 +30,24 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-20 bg-white dark:bg-gray-900">
+    <section id="about" ref={sectionRef} className="py-20 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Titre Animé */}
         <motion.h2
           className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12"
           initial="hidden"
-          animate={hasAnimated ? 'visible' : 'hidden'}
+          animate={inView ? 'visible' : 'hidden'}
           variants={sectionVariants}
-          ref={sectionRef}
         >
           {t('about.title')}
         </motion.h2>
+
+        {/* Contenu de la Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          {/* Image */}
           <motion.div
             initial="hidden"
-            animate={hasAnimated ? 'visible' : 'hidden'}
+            animate={inView ? 'visible' : 'hidden'}
             variants={sectionVariants}
           >
             <img
@@ -57,9 +56,11 @@ const About = () => {
               className="rounded-lg shadow-lg"
             />
           </motion.div>
+
+          {/* Texte */}
           <motion.div
             initial="hidden"
-            animate={hasAnimated ? 'visible' : 'hidden'}
+            animate={inView ? 'visible' : 'hidden'}
             variants={textVariants}
           >
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
@@ -68,6 +69,7 @@ const About = () => {
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
               {t('about.details')}
             </p>
+
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
                 <h3 className="font-bold text-gray-900 dark:text-white mb-2">

@@ -8,23 +8,23 @@ const skillCategories = [
   {
     title: "Frontend Development",
     icon: <Layout className="w-8 h-8 text-blue-600 dark:text-blue-400" />,
-    skills: ["React js", "Tailwind CSS", "Next.js"]
+    skills: ["React js", "Tailwind CSS", "Next.js"],
   },
   {
     title: "Backend Development",
     icon: <Server className="w-8 h-8 text-blue-600 dark:text-blue-400" />,
-    skills: ["Laravel 11", "PHP 8", "RESTful APIs"]
+    skills: ["Laravel 11", "PHP 8", "RESTful APIs"],
   },
   {
     title: "Database",
     icon: <Database className="w-8 h-8 text-blue-600 dark:text-blue-400" />,
-    skills: ["MySQL"]
+    skills: ["MySQL"],
   },
   {
     title: "Programming Languages",
     icon: <Code2 className="w-8 h-8 text-blue-600 dark:text-blue-400" />,
-    skills: ["PHP", "JavaScript", "Python", "Dart"]
-  }
+    skills: ["PHP", "JavaScript", "Python", "Dart"],
+  },
 ];
 
 const Skills = () => {
@@ -38,8 +38,9 @@ const Skills = () => {
   }, [i18n]);
 
   const { ref: sectionRef, inView } = useInView({
-    threshold: 0.2, // Déclenche à 20% de visibilité
+    threshold: 0.1, // Déclenche avec une petite visibilité
     triggerOnce: false, // Animation répétée à chaque fois
+    rootMargin: '0px 0px 100px 0px', // Ajoute un décalage en bas pour meilleure détection
   });
 
   const categoryVariants = {
@@ -47,25 +48,24 @@ const Skills = () => {
     visible: (index: number) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: index * 0.2, duration: 0.8, ease: 'easeOut' }
-    })
+      transition: { delay: index * 0.2, duration: 0.8, ease: 'easeOut' },
+    }),
   };
 
   return (
-    <section id="skills" className="py-20 bg-white dark:bg-gray-900">
+    <section id="skills" ref={sectionRef} className="py-20 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Titre Animé */}
         <motion.h2
           className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12"
-          initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
-          variants={{
-            hidden: { opacity: 0, y: -50 },
-            visible: { opacity: 1, y: 0, transition: { duration: 1 } }
-          }}
-          ref={sectionRef}
+          initial={{ opacity: 0, y: -50 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0 }}
+          transition={{ duration: 1 }}
         >
           {t('skills.title')}
         </motion.h2>
+
+        {/* Cartes de Compétences */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, index) => (
             <motion.div

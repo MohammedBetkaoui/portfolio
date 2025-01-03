@@ -47,12 +47,9 @@ const Contact: React.FC = () => {
       setSuccessMessage(t('contact.success_message'));
       setFormData({ name: '', email: '', message: '' });
 
-      // Masquer le message après quelques secondes
       setTimeout(() => setSuccessMessage(''), 5000);
     } catch (error: any) {
       setErrorMessage(error.message || t('contact.error_message'));
-
-      // Masquer le message après quelques secondes
       setTimeout(() => setErrorMessage(''), 5000);
     } finally {
       setIsSubmitting(false);
@@ -60,16 +57,16 @@ const Contact: React.FC = () => {
   };
 
   const { ref: sectionRef, inView } = useInView({
-    threshold: 0.2,
-    triggerOnce: false,
+    threshold: 0.1, // Déclenche l'animation même avec une petite partie visible
+    triggerOnce: false, // Réactive l'animation à chaque entrée
+    rootMargin: '0px 0px 100px 0px', // Ajoute un décalage de 100px en bas
   });
 
   return (
-    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-900">
+    <section id="contact" ref={sectionRef} className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Titre Animé */}
         <motion.h2
-          ref={sectionRef}
           initial={{ opacity: 0, y: -50 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0 }}
           transition={{ duration: 1 }}
@@ -135,7 +132,7 @@ const Contact: React.FC = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white p-3 focus:ring-2 focus:ring-blue-500"
+                  className="mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white p-3"
                   required
                 />
               </div>
@@ -148,7 +145,7 @@ const Contact: React.FC = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white p-3 focus:ring-2 focus:ring-blue-500"
+                  className="mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white p-3"
                   required
                 />
               </div>
