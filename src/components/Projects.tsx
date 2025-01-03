@@ -14,7 +14,7 @@ const projects = [
   {
     title: "La plateforme d'enchères pour le matériel agricole",
     description: "AgriBid is the auction platform for agricultural equipment, allowing professionals in the farming industry to buy and sell quality machinery at competitive prices. With our simple and secure interface, participate in auctions with confidence and find the tools you need to boost your production.",
-    image: "/pexels-pixabay-163752.jpg",
+    image: "/public/images/pexels-pixabay-163752.jpg",
     technologies: ["Laravel", "MySQL", "WebSockets"],
    
     githubLink: "https://github.com/MohammedBetkaoui/agriculture.git"
