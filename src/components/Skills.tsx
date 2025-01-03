@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { Code2, Database, Layout, Server } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
 
 const skillCategories = [
   {
@@ -30,22 +32,50 @@ const Skills = () => {
 
   // Charger la langue préférée depuis localStorage au démarrage
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('language') || 'en'; // Valeur par défaut : 'en'
+    const savedLanguage = localStorage.getItem('language') || 'en';
     i18n.changeLanguage(savedLanguage);
-
-    // Appliquer la direction RTL si la langue est arabe
     document.documentElement.dir = savedLanguage === 'ar' ? 'rtl' : 'ltr';
   }, [i18n]);
+
+  const { ref: sectionRef, inView } = useInView({
+    threshold: 0.2, // Déclenche à 20% de visibilité
+    triggerOnce: false, // Animation répétée à chaque fois
+  });
+
+  const categoryVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (index: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: index * 0.2, duration: 0.8, ease: 'easeOut' }
+    })
+  };
 
   return (
     <section id="skills" className="py-20 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+        <motion.h2
+          className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12"
+          initial="hidden"
+          animate={inView ? 'visible' : 'hidden'}
+          variants={{
+            hidden: { opacity: 0, y: -50 },
+            visible: { opacity: 1, y: 0, transition: { duration: 1 } }
+          }}
+          ref={sectionRef}
+        >
           {t('skills.title')}
-        </h2>
+        </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, index) => (
-            <div key={index} className="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
+            <motion.div
+              key={index}
+              className="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg shadow-lg"
+              custom={index}
+              initial="hidden"
+              animate={inView ? 'visible' : 'hidden'}
+              variants={categoryVariants}
+            >
               <div className="flex items-center mb-4">
                 {category.icon}
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white ml-3">
@@ -62,7 +92,7 @@ const Skills = () => {
                   </span>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

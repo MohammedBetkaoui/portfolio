@@ -11,7 +11,6 @@ const MainContent = () => {
       <About />
       <Projects />
       <Skills />
-     
       <Contact />
     </main>
   );
