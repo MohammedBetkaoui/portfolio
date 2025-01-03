@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 import NavLinks from './navigation/NavLinks';
@@ -8,16 +8,33 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const { i18n } = useTranslation();
 
+  // Fonction pour changer la langue et appliquer la direction RTL si nécessaire
   const changeLanguage = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    i18n.changeLanguage(event.target.value);
+    const selectedLang = event.target.value;
+    i18n.changeLanguage(selectedLang);
+    
+    // Sauvegarder la langue dans localStorage
+    localStorage.setItem('language', selectedLang);
+
+    // Activer la direction RTL pour l'arabe
+    document.documentElement.dir = selectedLang === 'ar' ? 'rtl' : 'ltr';
   };
+
+  // Utilisation de useEffect pour charger la langue stockée depuis localStorage
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('language') || 'en'; // Par défaut 'en' si aucune langue n'est stockée
+    i18n.changeLanguage(savedLanguage);
+    
+    // Appliquer la direction RTL si la langue est arabe
+    document.documentElement.dir = savedLanguage === 'ar' ? 'rtl' : 'ltr';
+  }, [i18n]);
 
   return (
     <header className="fixed w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <div className="text-2xl font-bold text-gray-900 dark:text-white">MB.</div>
+          <div className="text-2xl font-bold text-gray-900 dark:text-white">MB</div>
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
@@ -27,6 +44,7 @@ const Header = () => {
           {/* Social Links, Theme Toggle & Language Selector */}
           <div className="hidden md:flex items-center space-x-4">
             <ThemeToggle />
+            
             {/* Sélecteur de langue */}
             <select
               onChange={changeLanguage}
@@ -35,8 +53,9 @@ const Header = () => {
             >
               <option value="en">🇬🇧 English</option>
               <option value="fr">🇫🇷 Français</option>
-             
+              <option value="ar">🇩🇿 العربية</option>
             </select>
+
             <a href="https://github.com/MohammedBetkaoui" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
               <Github size={20} />
             </a>
@@ -51,6 +70,8 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-4">
             <ThemeToggle />
+            
+            {/* Sélecteur de langue pour mobile */}
             <select
               onChange={changeLanguage}
               value={i18n.language}
@@ -58,7 +79,7 @@ const Header = () => {
             >
               <option value="en">🇬🇧 EN</option>
               <option value="fr">🇫🇷 FR</option>
-              
+              <option value="ar">🇩🇿 AR</option>
             </select>
             <button 
               className="text-gray-700 dark:text-gray-300"

@@ -16,29 +16,6 @@
       "backendSkills": "Laravel 11, PHP 8, API RESTful"
     },
     
-        "experience": {
-          "title": "Expérience Professionnelle",
-          "senior_full_stack_developer": "Développeur Full Stack Senior",
-          "senior_full_stack_developer_description": "A dirigé le développement d'applications web de niveau entreprise en utilisant Laravel et React. Mise en place des pipelines CI/CD et mentorat des développeurs juniors.",
-          "senior_full_stack_developer_achievement_1": "Réduction du temps de chargement de l'application de 40%",
-          "senior_full_stack_developer_achievement_2": "Mise en œuvre de l'architecture microservices",
-          "senior_full_stack_developer_achievement_3": "Direction d'une équipe de 5 développeurs",
-          "full_stack_developer": "Développeur Full Stack",
-          "full_stack_developer_description": "Développement et maintenance de plusieurs projets clients en utilisant Laravel et React. Focalisation sur la création de code scalable et maintenable.",
-          "full_stack_developer_achievement_1": "Livraison de 15+ projets réussis",
-          "full_stack_developer_achievement_2": "Mise en œuvre de tests automatisés",
-          "full_stack_developer_achievement_3": "Amélioration de la couverture de code de 80%",
-          "web_developer": "Développeur Web",
-          "web_developer_description": "Travail sur divers projets de startups, en se concentrant sur le prototypage rapide et le développement de MVP.",
-          "web_developer_achievement_1": "Création de 5 MVP pour différentes startups",
-          "web_developer_achievement_2": "Réduction du temps de développement de 30%",
-          "web_developer_achievement_3": "Mise en œuvre des méthodologies agiles",
-          "company": {
-            "tech_solutions_inc": "Tech Solutions Inc.",
-            "digital_innovations": "Digital Innovations",
-            "startup_hub": "StartUp Hub"
-          }
-        },
         "contact": {
     "title": "Prenez Contact",
     "contact_information": "Informations de Contact",
@@ -57,9 +34,9 @@
     "demo": "Démo",
     "code": "Code",
     "project_1_title": "Plateforme de E-Commerce",
-    "project_1_description": "Une plateforme e-commerce complète construite avec Laravel et React, avec gestion des stocks en temps réel et traitement sécurisé des paiements.",
-    "project_2_title": "Système de gestion des tâches",
-    "project_2_description": "Un système collaboratif de gestion des tâches avec des mises à jour en temps réel et des fonctionnalités de collaboration en équipe."
+    "project_1_description": "Une plateforme e-commerce complète construite avec Laravel , avec gestion des stocks en temps réel et traitement sécurisé des paiements.",
+    "project_2_title": "La plateforme d'enchères pour le matériel agricole",
+    "project_2_description": "AgriBid est la plateforme de vente aux enchères dédiée au matériel agricole, permettant aux professionnels de l'agriculture d'acheter et de vendre des équipements de qualité à des prix compétitifs. Grâce à notre interface simple et sécurisée, participez aux enchères en toute confiance et trouvez les outils qu'il vous faut pour améliorer votre production."
   },
   "skills": {
     "title": "Compétences et Expertise",

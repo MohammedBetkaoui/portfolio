@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const About = () => {
-  const { t } = useTranslation(); // Utilisation de useTranslation
+  const { t, i18n } = useTranslation(); // Utilisation de useTranslation
+
+  // Effect pour récupérer la langue stockée dans le localStorage
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('language') || 'en'; // Valeur par défaut : 'en'
+    i18n.changeLanguage(savedLanguage);
+
+    // Appliquer la direction RTL si la langue est arabe
+    document.documentElement.dir = savedLanguage === 'ar' ? 'rtl' : 'ltr';
+  }, [i18n]);
 
   return (
     <section id="about" className="py-20 bg-white dark:bg-gray-900">

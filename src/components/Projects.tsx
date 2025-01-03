@@ -1,28 +1,37 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const projects = [
   {
     title: "E-Commerce Platform",
-    description: "A full-featured e-commerce platform built with Laravel and React, featuring real-time inventory management and secure payment processing.",
+    description: "A full-featured e-commerce platform built with Laravel , featuring real-time inventory management and secure payment processing.",
     image: "https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    technologies: ["Laravel 11", "React js", "MySQL"],
-    demoLink: "#",
-    githubLink: "#"
+    technologies: ["Laravel 11", "MySQL"],
+   
+    githubLink: "https://github.com/MohammedBetkaoui/store_laravel_11.git"
   },
   {
-    title: "Task Management System",
-    description: "A collaborative task management system with real-time updates and team collaboration features.",
-    image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    technologies: ["Laravel", "React js", "WebSockets"],
-    demoLink: "#",
-    githubLink: "#"
+    title: "La plateforme d'enchères pour le matériel agricole",
+    description: "AgriBid is the auction platform for agricultural equipment, allowing professionals in the farming industry to buy and sell quality machinery at competitive prices. With our simple and secure interface, participate in auctions with confidence and find the tools you need to boost your production.",
+    image: "/pexels-pixabay-163752.jpg",
+    technologies: ["Laravel", "MySQL", "WebSockets"],
+   
+    githubLink: "https://github.com/MohammedBetkaoui/agriculture.git"
   },
 ];
 
 const Projects = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  // Charger la langue préférée au démarrage
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('language') || 'en'; // Valeur par défaut : 'en'
+    i18n.changeLanguage(savedLanguage);
+
+    // Appliquer la direction RTL si la langue est arabe
+    document.documentElement.dir = savedLanguage === 'ar' ? 'rtl' : 'ltr';
+  }, [i18n]);
 
   return (
     <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-800">
@@ -56,13 +65,7 @@ const Projects = () => {
                   ))}
                 </div>
                 <div className="flex justify-between">
-                  <a
-                    href={project.demoLink}
-                    className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300"
-                  >
-                    <ExternalLink size={20} className="mr-1" />
-                    {t('projects.demo')}
-                  </a>
+                 
                   <a
                     href={project.githubLink}
                     className="inline-flex items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"

@@ -16,29 +16,7 @@
       "backendSkills": "Laravel 11, PHP 8, RESTful APIs"
     },
     
-        "experience": {
-          "title": "Professional Experience",
-          "senior_full_stack_developer": "Senior Full Stack Developer",
-          "senior_full_stack_developer_description": "Led development of enterprise-level web applications using Laravel and React. Implemented CI/CD pipelines and mentored junior developers.",
-          "senior_full_stack_developer_achievement_1": "Reduced application load time by 40%",
-          "senior_full_stack_developer_achievement_2": "Implemented microservices architecture",
-          "senior_full_stack_developer_achievement_3": "Led team of 5 developers",
-          "full_stack_developer": "Full Stack Developer",
-          "full_stack_developer_description": "Developed and maintained multiple client projects using Laravel and React. Focused on creating scalable and maintainable code.",
-          "full_stack_developer_achievement_1": "Delivered 15+ successful projects",
-          "full_stack_developer_achievement_2": "Implemented automated testing",
-          "full_stack_developer_achievement_3": "Improved code coverage by 80%",
-          "web_developer": "Web Developer",
-          "web_developer_description": "Worked on various startup projects, focusing on rapid prototyping and MVP development.",
-          "web_developer_achievement_1": "Built 5 MVPs for different startups",
-          "web_developer_achievement_2": "Reduced development time by 30%",
-          "web_developer_achievement_3": "Implemented agile methodologies",
-          "company": {
-            "tech_solutions_inc": "Tech Solutions Inc.",
-            "digital_innovations": "Digital Innovations",
-            "startup_hub": "StartUp Hub"
-          }
-        },
+       
         "contact": {
     "title": "Get In Touch",
     "contact_information": "Contact Information",
@@ -56,9 +34,9 @@
     "demo": "Demo",
     "code": "Code",
     "project_1_title": "E-Commerce Platform",
-    "project_1_description": "A full-featured e-commerce platform built with Laravel and React, featuring real-time inventory management and secure payment processing.",
-    "project_2_title": "Task Management System",
-    "project_2_description": "A collaborative task management system with real-time updates and team collaboration features."
+    "project_1_description": "A full-featured e-commerce platform built with Laravel , featuring real-time inventory management and secure payment processing.",
+    "project_2_title": "The Auction Platform for Agricultural Equipment",
+    "project_2_description": "AgriBid is the auction platform for agricultural equipment, allowing professionals in the farming industry to buy and sell quality machinery at competitive prices. With our simple and secure interface, participate in auctions with confidence and find the tools you need to boost your production."
   },
   "skills": {
     "title": "Skills & Expertise",

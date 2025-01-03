@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mail, Github, Linkedin, Send } from 'lucide-react';
 import supabase from '../supabaseClient';
 import { useTranslation } from 'react-i18next';
 
 const Contact: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   
   const [formData, setFormData] = useState({
     name: '',
@@ -15,6 +15,15 @@ const Contact: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+
+  // Charger la langue préférée au chargement du composant
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('language') || 'en'; // Valeur par défaut : 'en'
+    i18n.changeLanguage(savedLanguage);
+
+    // Appliquer la direction RTL si la langue est arabe
+    document.documentElement.dir = savedLanguage === 'ar' ? 'rtl' : 'ltr';
+  }, [i18n]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;

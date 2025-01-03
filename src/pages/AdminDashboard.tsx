@@ -120,6 +120,12 @@ const AdminDashboard = () => {
     }
   };
 
+  // Fonction pour détecter si le texte est en arabe
+  const isArabic = (text: string): boolean => {
+    const arabicRegex = /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]/;
+    return arabicRegex.test(text);
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -151,7 +157,7 @@ const AdminDashboard = () => {
               onClick={toggleDarkMode}
               className="bg-gray-700 text-white p-2 rounded-full hover:bg-gray-600"
             >
-              {darkMode ? <Moon size={24} /> : <Sun size={24} />} {/* Icône Soleil ou Lune */}
+              {darkMode ? <Moon size={24} /> : <Sun size={24} />}
             </button>
             <button
               onClick={handleLogout}
@@ -168,7 +174,10 @@ const AdminDashboard = () => {
             {messages.map((message) => (
               <div
                 key={message.id}
-                className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                className={`p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ${
+                  isArabic(message.message) ? 'text-right' : 'text-left'
+                }`}
+                dir={isArabic(message.message) ? 'rtl' : 'ltr'}
               >
                 <div className="flex justify-between items-start">
                   <div>
