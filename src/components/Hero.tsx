@@ -1,79 +1,42 @@
 import React, { useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { useInView } from 'react-intersection-observer';
-import { motion } from 'framer-motion';
 
 const Hero = () => {
   const { t, i18n } = useTranslation();
 
-  // Gestion de la langue
+  // Charger la langue préférée au démarrage
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('language') || 'en';
+    const savedLanguage = localStorage.getItem('language') || 'en'; // Valeur par défaut : 'en'
     i18n.changeLanguage(savedLanguage);
+
+    // Appliquer la direction RTL si la langue est arabe
     document.documentElement.dir = savedLanguage === 'ar' ? 'rtl' : 'ltr';
   }, [i18n]);
 
-  // Intersection Observer
-  const { ref: sectionRef, inView } = useInView({
-    threshold: 0.3, // Se déclenche quand 30% de la section est visible
-    triggerOnce: false, // Animation répétée
-    rootMargin: '0px 0px 100px 0px', // Améliore la détection en bas
-  });
-
-  // Variantes d'animation
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: 'easeOut' } },
-  };
-
-  const fadeIn = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 1, ease: 'easeOut', delay: 0.3 } },
-  };
-
   return (
-    <section
-      id="home"
-      ref={sectionRef}
+    <section 
+      id="home" 
       className="min-h-screen flex items-center bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: `linear-gradient(rgba(7, 4, 4, 0.83), rgba(82, 80, 80, 0.54)), url('https://images.unsplash.com/photo-1517134191118-9d595e4c8c2b?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80')`,
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <motion.div
-          className="text-center"
-          initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
-          variants={fadeInUp}
-        >
-          {/* Titre principal */}
+        <div className="text-center">
           <h1 className="text-4xl sm:text-6xl font-bold text-gray-100 dark:text-gray-100 mb-6">
             {t('hero.name')}
           </h1>
 
-          {/* Sous-titre */}
-          <motion.h2
-            className="text-2xl sm:text-3xl text-gray-100 dark:text-gray-300 mb-8"
-            variants={fadeIn}
-          >
+          <h2 className="text-2xl sm:text-3xl text-gray-100 dark:text-gray-300 mb-8">
             {t('hero.title')}
-          </motion.h2>
+          </h2>
 
-          {/* Description */}
-          <motion.p
-            className="text-xl text-gray-200 dark:text-gray-400 mb-12 max-w-2xl mx-auto"
-            variants={fadeIn}
-          >
+          <p className="text-xl text-gray-200 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
             {t('hero.description')}
-          </motion.p>
+          </p>
 
-          {/* Boutons d'action */}
-          <motion.div
-            className="flex justify-center gap-4"
-            variants={fadeIn}
-          >
+          <div className="flex justify-center gap-4">
             <a
               href="#projects"
               className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
@@ -87,8 +50,8 @@ const Hero = () => {
             >
               {t('hero.contactMe')}
             </a>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );
