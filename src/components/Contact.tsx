@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Mail, Github, Linkedin, Send, CheckCircle, XCircle } from 'lucide-react';
 import supabase from '../supabaseClient';
 import { useTranslation } from 'react-i18next';
-import { useInView } from 'react-intersection-observer';
-import { motion } from 'framer-motion';
 
 const Contact: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -56,34 +54,18 @@ const Contact: React.FC = () => {
     }
   };
 
-  const { ref: sectionRef, inView } = useInView({
-    threshold: 0.1, // Déclenche l'animation même avec une petite partie visible
-    triggerOnce: false, // Réactive l'animation à chaque entrée
-    rootMargin: '0px 0px 100px 0px', // Ajoute un décalage de 100px en bas
-  });
-
   return (
-    <section id="contact" ref={sectionRef} className="py-20 bg-gray-50 dark:bg-gray-900">
+    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Titre Animé */}
-        <motion.h2
-          initial={{ opacity: 0, y: -50 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0 }}
-          transition={{ duration: 1 }}
-          className="text-4xl font-bold text-center text-gray-800 dark:text-white mb-12"
-        >
+        {/* Titre */}
+        <h2 className="text-4xl font-bold text-center text-gray-800 dark:text-white mb-12 transition-transform duration-500 hover:scale-105">
           {t('contact.title')}
-        </motion.h2>
+        </h2>
 
         {/* Contenu en 2 Colonnes */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Informations de Contact */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0 }}
-            transition={{ duration: 0.8 }}
-            className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8"
-          >
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
             <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
               {t('contact.contact_information')}
             </h3>
@@ -93,35 +75,30 @@ const Contact: React.FC = () => {
             <div className="space-y-4">
               <a
                 href="mailto:mohammed.betkaoui@univ-bba.dz"
-                className="flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                className="flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
               >
                 <Mail className="w-6 h-6 mr-3" />
                 mohammed.betkaoui@univ-bba.dz
               </a>
               <a
                 href="https://github.com/MohammedBetkaoui"
-                className="flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                className="flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
               >
                 <Github className="w-6 h-6 mr-3" />
                 GitHub Profile
               </a>
               <a
                 href="https://www.linkedin.com/in/mohammed-betkaoui-b005342a5/"
-                className="flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                className="flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
               >
                 <Linkedin className="w-6 h-6 mr-3" />
                 LinkedIn Profile
               </a>
             </div>
-          </motion.div>
+          </div>
 
           {/* Formulaire de Contact */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0 }}
-            transition={{ duration: 0.8 }}
-            className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8"
-          >
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
@@ -168,10 +145,18 @@ const Contact: React.FC = () => {
               >
                 {isSubmitting ? t('contact.sending') : t('contact.send_message')}
               </button>
-              {successMessage && <p className="text-green-600 mt-4 flex items-center"><CheckCircle className="mr-2"/> {successMessage}</p>}
-              {errorMessage && <p className="text-red-600 mt-4 flex items-center"><XCircle className="mr-2"/> {errorMessage}</p>}
+              {successMessage && (
+                <p className="text-green-600 mt-4 flex items-center">
+                  <CheckCircle className="mr-2" /> {successMessage}
+                </p>
+              )}
+              {errorMessage && (
+                <p className="text-red-600 mt-4 flex items-center">
+                  <XCircle className="mr-2" /> {errorMessage}
+                </p>
+              )}
             </form>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
