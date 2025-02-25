@@ -29,15 +29,17 @@
     "error_message": "Échec de l'envoi du message."
       
         },
-        "projects": {
-    "title": "Projets en vedette",
-    "demo": "Démo",
-    "code": "Code",
-    "project_1_title": "Plateforme de E-Commerce",
-    "project_1_description": "Une plateforme e-commerce complète construite avec Laravel , avec gestion des stocks en temps réel et traitement sécurisé des paiements.",
-    "project_2_title": "La plateforme d'enchères pour le matériel agricole",
-    "project_2_description": "AgriBid est la plateforme de vente aux enchères dédiée au matériel agricole, permettant aux professionnels de l'agriculture d'acheter et de vendre des équipements de qualité à des prix compétitifs. Grâce à notre interface simple et sécurisée, participez aux enchères en toute confiance et trouvez les outils qu'il vous faut pour améliorer votre production."
-  },
+       "projects": {
+  "title": "Projets en vedette",
+  "demo": "Démo",
+  "code": "Code",
+  "project_1_title": "Plateforme de E-Commerce",
+  "project_1_description": "Une plateforme e-commerce complète construite avec Laravel , avec gestion des stocks en temps réel et traitement sécurisé des paiements.",
+  "project_2_title": "La plateforme d'enchères pour le matériel agricole",
+  "project_2_description": "AgriBid est la plateforme de vente aux enchères dédiée au matériel agricole, permettant aux professionnels de l'agriculture d'acheter et de vendre des équipements de qualité à des prix compétitifs. Grâce à notre interface simple et sécurisée, participez aux enchères en toute confiance et trouvez les outils qu'il vous faut pour améliorer votre production.",
+  "project_3_title": "Boutique en ligne de vêtements",
+  "project_3_description": "Une plateforme e-commerce complète pour la vente de vêtements pour hommes, femmes et enfants. Développée avec Express.js pour le backend, React.js pour le frontend, MongoDB pour la base de données, et Cloudinary pour le stockage des images. Le projet comprend des interfaces séparées pour les utilisateurs et les administrateurs."
+},
   "skills": {
     "title": "Compétences et Expertise",
     "category_1_title": "Développement Frontend",

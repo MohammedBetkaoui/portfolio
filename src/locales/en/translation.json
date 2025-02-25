@@ -29,15 +29,17 @@
     "success_message": "Message sent successfully!",
     "error_message": "Failed to send message."
   },
-  "projects": {
-    "title": "Featured Projects",
-    "demo": "Demo",
-    "code": "Code",
-    "project_1_title": "E-Commerce Platform",
-    "project_1_description": "A full-featured e-commerce platform built with Laravel , featuring real-time inventory management and secure payment processing.",
-    "project_2_title": "The Auction Platform for Agricultural Equipment",
-    "project_2_description": "AgriBid is the auction platform for agricultural equipment, allowing professionals in the farming industry to buy and sell quality machinery at competitive prices. With our simple and secure interface, participate in auctions with confidence and find the tools you need to boost your production."
-  },
+ "projects": {
+  "title": "Featured Projects",
+  "demo": "Demo",
+  "code": "Code",
+  "project_1_title": "E-Commerce Platform",
+  "project_1_description": "A full-featured e-commerce platform built with Laravel , featuring real-time inventory management and secure payment processing.",
+  "project_2_title": "The Auction Platform for Agricultural Equipment",
+  "project_2_description": "AgriBid is the auction platform for agricultural equipment, allowing professionals in the farming industry to buy and sell quality machinery at competitive prices. With our simple and secure interface, participate in auctions with confidence and find the tools you need to boost your production.",
+  "project_3_title": "Clothing E-Commerce Store",
+  "project_3_description": "A full-stack e-commerce platform for selling men's, women's, and kids' clothing. Built with Express.js for the backend, React.js for the frontend, MongoDB for the database, and Cloudinary for image storage. The project includes separate interfaces for users and administrators."
+},
   "skills": {
     "title": "Skills & Expertise",
     "category_1_title": "Frontend Development",

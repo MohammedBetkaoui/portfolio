@@ -8,7 +8,6 @@ const projects = [
     description: "A full-featured e-commerce platform built with Laravel , featuring real-time inventory management and secure payment processing.",
     image: "https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     technologies: ["Laravel 11", "MySQL"],
-   
     githubLink: "https://github.com/MohammedBetkaoui/store_laravel_11.git"
   },
   {
@@ -16,11 +15,17 @@ const projects = [
     description: "AgriBid is the auction platform for agricultural equipment, allowing professionals in the farming industry to buy and sell quality machinery at competitive prices. With our simple and secure interface, participate in auctions with confidence and find the tools you need to boost your production.",
     image: "/images/pexels-pixabay-163752.jpg",
     technologies: ["Laravel", "MySQL", "WebSockets"],
-   
     githubLink: "https://github.com/MohammedBetkaoui/agriculture.git"
   },
+  {
+    title: "E-Commerce Clothing Store",
+    description: "A full-stack e-commerce platform for selling men's, women's, and kids' clothing. Built with Express.js for the backend, React.js for the frontend, MongoDB for the database, and Cloudinary for image storage. The project includes separate interfaces for users and administrators.",
+    image: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    technologies: ["Express.js", "React.js", "MongoDB", "Cloudinary"],
+    githubLink: "https://github.com/MohammedBetkaoui/btk-shop.git",
+   
+  }
 ];
-
 const Projects = () => {
   const { t, i18n } = useTranslation();
 

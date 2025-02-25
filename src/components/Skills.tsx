@@ -6,22 +6,22 @@ const skillCategories = [
   {
     title: "Frontend Development",
     icon: <Layout className="w-8 h-8 text-blue-600 dark:text-blue-400" />,
-    skills: ["React js", "Tailwind CSS", "Next.js"]
+    skills: ["React js"]
   },
   {
     title: "Backend Development",
     icon: <Server className="w-8 h-8 text-blue-600 dark:text-blue-400" />,
-    skills: ["Laravel 11", "PHP 8", "RESTful APIs"]
+    skills: ["Laravel 11", "PHP 8", "RESTful APIs","express js"]
   },
   {
     title: "Database",
     icon: <Database className="w-8 h-8 text-blue-600 dark:text-blue-400" />,
-    skills: ["MySQL"]
+    skills: ["MySQL", "MongoDB"]
   },
   {
     title: "Programming Languages",
     icon: <Code2 className="w-8 h-8 text-blue-600 dark:text-blue-400" />,
-    skills: ["PHP", "JavaScript", "Python", "Dart"]
+    skills: ["PHP", "JavaScript", "Dart"]
   }
 ];
 
