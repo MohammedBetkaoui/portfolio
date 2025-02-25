@@ -11,7 +11,7 @@ const skillCategories = [
   {
     title: "Backend Development",
     icon: <Server className="w-8 h-8 text-blue-600 dark:text-blue-400" />,
-    skills: ["Laravel 11", "PHP 8", "RESTful APIs","express js"]
+    skills: ["Laravel 11", "PHP 8", "RESTful APIs","Express js"]
   },
   {
     title: "Database",
